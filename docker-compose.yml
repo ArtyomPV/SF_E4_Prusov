@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   web:
-    build: ./app
+    image: artpv/myfirstrepo:web
+    # build: ./app
     command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8000
     # command: python manage.py runserver 0.0.0.0:8000
     environment:
@@ -30,7 +31,8 @@ services:
       - POSTGRES_PASSWORD=hello_django
       - POSTGRES_DB=hello_django_dev
   nginx:
-    build: ./nginx
+    image: artpv/myfirstrepo:nginx
+    # build: ./nginx
     volumes:
       - ./app/staticfiles:/home/app/web/staticfiles
     ports:
@@ -40,3 +42,4 @@ services:
 
 volumes:
   postgres_data:
+  app/staticfiles:
