@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-&(5x(tcz2x3lsisy&u#t8avb&hkfih&du9l!d39iejdc3(^@5w'
 SECRET_KEY = os.environ.get("SECRET_KEY")
+CSRF_TRUSTED_ORIGINS = ["http://localhost:1337"]
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = bool(os.environ.get("DEBUG", default=0))
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres', #это модуль Django, который предоставляет интеграцию с базой данных PostgreSQL
 ]
 
 MIDDLEWARE = [
